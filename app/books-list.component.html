@@ -1,0 +1,35 @@
+<div class="container">
+    {{isSuccess}}
+    <div *ngIf="isSuccess" class="alert alert-success">
+    <strong>Success!</strong>Your Order has been Placed.
+    </div>
+    <div class="col-xs-2">
+        <!-- Refine panel goes here -->
+        <h2> Refine </h2>
+        <label class="checkbox"><input type="checkbox" value="">Option 1</label>
+        <label class="checkbox"><input type="checkbox" value="">Option 2</label>
+        <label class="checkbox"><input type="checkbox" value="">Option 3</label>
+    </div>
+    <div class="col-xs-10">
+        <div class="col-xs-3 btm" *ngFor="let book of books">
+            <a href="#"><img src={{book.img}}></a>
+            <div>
+                <div>
+                <span> {{book.name}}</span> 
+                <span>{{book.price}} </span>
+                </div>
+                <div>
+                <button type="button" class="btn btn-primary btn-xs"
+                (click)="selectBook(book)">{{addText}}
+                    <span class={{addClass}}></span>
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gotoCartBtn">
+   <button type="button" class="btn btn-primary"
+    (click)="gotoCart()">CheckOutCart</button>
+    </div>
+</div>

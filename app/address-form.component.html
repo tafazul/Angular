@@ -1,0 +1,40 @@
+
+<div class="container">
+    <h1>Address Form</h1>
+    <form #addressForm>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="Address Line1">Address Line1</label>
+        <input type="text" class="form-control" id="Address Line1">
+      </div>
+       <div class="form-group">
+        <label for="Address Line2">Address Line2</label>
+        <input type="text" class="form-control" id="Address Line2">
+      </div>
+      <div class="form-group">
+        <label for="Address Line3">Address Line3</label>
+        <input type="text" class="form-control" id="Address Line3">
+      </div>
+      <div class="form-group">
+        <label for="City">City</label>
+        <input type="text" class="form-control" id="City">
+      </div>
+       <div class="form-group">
+        <label for="PinCode">PinCode</label>
+        <input type="text" class="form-control" id="PinCode">
+      </div>
+       <div class="form-group">
+        <label for="Mobile">Mobile</label>
+        <input type="text" class="form-control" id="Mobile">
+      </div>
+       <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="text" class="form-control" id="Email">
+      </div>
+
+      <button type="submit" class="btn btn-default" (click)="gotoHome()" >PlaceOrder</button>
+    </form>
+</div>

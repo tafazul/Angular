@@ -1,0 +1,10 @@
+{
+  "data": [
+    { "id": "1", "name": "Book1", "price":"100","img":"http://www.buybooksindia.com/image.php?s=http://buybooksindia.in/images/bbiimages/2014/07/9788120349346.jpg"},
+    { "id": "2", "name": "Book2", "price":"200","img":"http://www.buybooksindia.com/image.php?s=http://buybooksindia.in/images/bbiimages/2014/07/9788176565974.jpeg"},
+    { "id": "3", "name": "Book3", "price":"300","img":"./images/book1.jpg"},
+    { "id": "4", "name": "Book4", "price":"400","img":"./images/book1.jpg"},
+    { "id": "4", "name": "Book5", "price":"500","img":"./images/book1.jpg"},
+    { "id": "4", "name": "Book6", "price":"600","img":"./images/book1.jpg"}
+  ]
+}
