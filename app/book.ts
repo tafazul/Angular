@@ -1,6 +1,6 @@
 export class Book {
   id: number;
-  name: string;
-  price: number;
+  BookName: string;
+  Price: number;
   img: string;
 }

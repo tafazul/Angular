@@ -1,8 +1,8 @@
 <div class="container">
-    {{isSuccess}}
     <div *ngIf="isSuccess" class="alert alert-success">
     <strong>Success!</strong>Your Order has been Placed.
     </div>
+    
     <div class="col-xs-2">
         <!-- Refine panel goes here -->
         <h2> Refine </h2>
@@ -10,13 +10,14 @@
         <label class="checkbox"><input type="checkbox" value="">Option 2</label>
         <label class="checkbox"><input type="checkbox" value="">Option 3</label>
     </div>
+    
     <div class="col-xs-10">
         <div class="col-xs-3 btm" *ngFor="let book of books">
-            <a href="#"><img src={{book.img}}></a>
+            <img src ={{book.image}} >
             <div>
                 <div>
-                <span> {{book.name}}</span> 
-                <span>{{book.price}} </span>
+                <span> {{book.BookName}}</span> 
+                <span>{{book.Price}} </span>
                 </div>
                 <div>
                 <button type="button" class="btn btn-primary btn-xs"

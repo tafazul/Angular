@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Book }              from './book';
 import { Router }            from '@angular/router';
 import { BookService }       from './book.service';
@@ -18,7 +18,8 @@ export class BooksListComponent implements OnInit {
   mode = 'Observable';
   selectedBooks : Book[] =[];
   isSuccess = false;
-  a:Book[];
+ l:number=0;
+  public cartitems:Book[];
   constructor (private bookService: BookService,
               public service : ShareBooks,
                private router: Router
@@ -27,13 +28,20 @@ export class BooksListComponent implements OnInit {
                }
 
   ngOnInit() { this.getBooks(); 
-   if(this.router.url === '/addressform'){
-     this.isSuccess=true;
+    this.isCartEmpty();
+
    }
+   isCartEmpty(){
+      
+     this.cartitems =JSON.parse(localStorage.getItem('cartItems'));
+     this.l =  this.cartitems.length;
+     if(this.l!=0){
+       this.isSuccess = true;
+     }
    }
 
   getBooks() {
-    this.bookService.getBooks()
+    this.bookService.getBooks()                     
                      .subscribe(
                        books => this.books = books,
                        error =>  this.errorMessage = <any>error);

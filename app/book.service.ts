@@ -6,18 +6,29 @@ import { Observable }     from 'rxjs/Observable';
 @Injectable()
 export class BookService {
   constructor (private http: Http) {}
+   books: Book[];
 
-  private booksUrl = 'app/books.json';  
+  private booksUrl = 'https://api.mlab.com/api/1/databases/mongobook/collections/BookDetails?apiKey=Hzf_MHk9IoVJiLKRARJ1_AuRPJz2Q9Wo';  
 
   getBooks (): Observable<Book[]> {
+    return this.http.get(this.booksUrl).map((res:Response) => res.json());
+  }
+
+
+
+
+
+/* getBooks (): Observable<Book[]> {
     return this.http.get(this.booksUrl)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+
      private extractData(res: Response) {
     let body = res.json();
-    return body.data || { };
-  }
+    console.log("res.json()>>",res.json();
+    return body || { };
+  }*/
 
   private handleError (error: any) {
     let errMsg = (error.message) ? error.message :
