@@ -1,19 +1,21 @@
 <div id="headerRow" class="row">
     <div id="titlenlogo">
-         
+        <div class="col-xs-4"> 
         <span><img src='./images/samplelogo.jpg'></span>
         
          
-        <span><h1>{{title}}</h1></span>
-      
+        <span><h1>{{title}}</h1></span></div>
+      </div>
         
-        <div id="searchButton" class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+        <div id="searchButton" class="input-group col-xs-5">
+            <input type="text" #searchterm class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
+                <button class="btn btn-default" type="button"
+                (click)="setSearchTerm(searchterm)">Go!</button>
             </span>
         </div>
+
       
     </div>
-</div>
+
  <hr>

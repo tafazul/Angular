@@ -1,7 +1,7 @@
 <div class="container">
     <table class="table table-hover">
         <thead>
-            <tr>
+            <tr class="tableHeader">
                 <td>Book</td>
                 <td>Quantity</td>
                 <td>Price</td>
@@ -10,11 +10,11 @@
         </thead>
         <tbody>
             <tr *ngFor="let book of selectedBooks">
-                <td><span><img src={{book.image}}></span>
-                    <span>{{book.BookName}}</span>
+                <td><span><img src={{book.image}} class="checkoutImg"></span>
+                    <span class="checkoutBook">{{book.BookName}}</span>
                 </td>
-                <td><input type="text" value="1" size="1" ></td>
-                <td>{{book.Price}}</td>
+                <td><input #quantity type="text" [(ngModel)]="factor" size="1" ></td>
+                <td>{{book.Price | multiply : factor }}</td>
             </tr>
         </tbody>
 

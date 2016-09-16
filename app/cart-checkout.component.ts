@@ -1,18 +1,28 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book }             from './book';
-import { ShareBooks }       from './share-books.service';
+import { BooksInCartService }       from './books-in-cart.service';
 import { Router }            from '@angular/router';
 @Component({
   selector: 'app-cart',
   templateUrl: `app/cart-checkout.component.html`,
-  providers: [ShareBooks]
+  providers: [BooksInCartService]
   
 })
 export class CartComponent  {
- public selectedBooks=JSON.parse(localStorage.getItem('cartItems'));
- constructor(private router : Router){}
+ selectedBooks:Book[]=[];
+ factor = 1;
+
+ constructor(private router : Router,
+              private booksInCartService : BooksInCartService ){
+                this.getBooksFromCart();
+              }
 
 gotoForm(){
        this.router.navigate(['/addressform']);
+  }
+  getBooksFromCart(){
+      this.booksInCartService.getBooksInCart().then(
+        (selectedBooks:Book[])=>this.selectedBooks=selectedBooks
+      );
   }
 }

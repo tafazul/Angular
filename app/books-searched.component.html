@@ -1,0 +1,76 @@
+<div class="container">
+    
+     <div *ngIf="isSuccess" class="alert alert-success">
+    <strong>Success!</strong>Your Order has been Placed.
+    </div>
+    
+    <div class="col-xs-2 refinePanel">
+        <!-- Refine panel goes here -->
+        <h2> Refine </h2>
+        <hr>
+        <br>
+        <h4>Subject</h4>
+        <hr>
+        <label class="checkbox"><input type="checkbox" value=""><span class="outer"><span class="inner">
+            </span></span><span class="formText displayInlineBlock">Web design</span></label>
+        <label class="checkbox"><input type="checkbox" value=""><span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock">Web programming</span></label>
+        <label class="checkbox"><input type="checkbox" value=""><span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock">Artificial intelligence</span></label>
+        <label class="checkbox"><input type="checkbox" value=""><span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock">Computer Science</span></label>
+
+        <br>
+        <h4>Price</h4>
+        <hr>
+        <label class="radio"><input id="radio1" type="radio" name="radios" checked>
+            <span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock">All</span></label>
+        <label class="radio"><input id="radio1" type="radio" name="radios"><span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock"> 0 - Rs. 300 </span></label>
+        <label class="radio"><input id="radio1" type="radio" name="radios" ><span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock">Rs.300-600</span></label>
+        <label class="radio"><input id="radio1" type="radio" name="radios" ><span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock">Rs.600-900 </span></label>
+        <label class="radio"><input id="radio1" type="radio" name="radios"><span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock">Rs.900&above </span></label>
+     
+
+        <br>
+        <h4>Availability</h4>
+        <hr>
+     <label class="checkbox"><input type="checkbox" value=""><span class="outer"><span class="inner"></span></span>
+            <span class="formText displayInlineBlock">Exclude out of stock</span></label>
+       
+    </div>
+    
+    <div class="col-xs-10">
+        <div class="col-xs-3 btm" *ngFor="let book of (books|searchFilter:searchString)">
+            <img src ={{book.image}} >
+            <div>
+                <div>
+                <span> {{book.BookName}}</span><br> 
+                <span>Rs.{{book.Price}} </span>
+                </div>
+                <div>
+                <button type="button" class="btn btn-primary btn-xs cartButton" id="cartButton"
+                (click)="selectBook(book)"
+                (click)="isBookSelected(book)" [class.orangeButton] ="isBookSelected(book)">
+                    <p *ngIf="!isBookSelected(book)">Add to Cart</p>
+                    <p *ngIf="isBookSelected(book)">Added to Cart</p>
+                    <span class="glyphicon" 
+                    [class.glyphicon-shopping-cart] ="!isBookSelected(book)" 
+                    [class.glyphicon-ok] ="isBookSelected(book)" 
+                    ></span>
+
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gotoCartBtn">
+   <button type="button" class="btn btn-primary" id="checkoutButton"
+    (click)="gotoCart()">CheckOutCart</button>
+    </div>
+</div>

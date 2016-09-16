@@ -11,6 +11,10 @@ import { HttpModule }     from '@angular/http';
 import { AddressComponent } from './address-form.component'
 import { routing,
          appRoutingProviders } from './app.routing';
+import { SearchFilterPipeComponent } from './search.pipe';
+import { CartBooks } from './books-in-cart';
+import { SearchedBooksListComponent } from './books-searched.component';
+import { MultiplyPipe } from './multiply.pipe'
 
 
 @NgModule({
@@ -26,7 +30,12 @@ import { routing,
     BooksListComponent,
     FooterComponent,
     CartComponent,
-    AddressComponent
+    AddressComponent,
+    SearchFilterPipeComponent,
+    CartBooks,
+    SearchedBooksListComponent,
+    MultiplyPipe
+
   ],
    providers: [
     appRoutingProviders

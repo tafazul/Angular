@@ -12,6 +12,7 @@ export class BookService {
 
   getBooks (): Observable<Book[]> {
     return this.http.get(this.booksUrl).map((res:Response) => res.json());
+
   }
 
 
