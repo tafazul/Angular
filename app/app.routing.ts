@@ -3,8 +3,7 @@ import { CartComponent }        from './cart-checkout.component';
 import { BooksListComponent }   from './books-list.component'; 
 import { AppComponent }         from './app.component';
 import { AddressComponent }     from './address-form.component';
-import { SearchedBooksListComponent } from './books-searched.component';
-
+import { DummyComponent } from './dummy.component';
 const appRoutes: Routes = [
 {
     path: '',
@@ -19,8 +18,13 @@ const appRoutes: Routes = [
       path: 'home',
       component: BooksListComponent
   },
-  { path: 'searchedhome', 
-  component: SearchedBooksListComponent },
+
+  {   path: 'home/:word',
+      component: BooksListComponent
+  },
+  {   path: 'dummy',
+      component: DummyComponent
+  },
    {
       path: 'addressform',
       component: AddressComponent

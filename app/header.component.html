@@ -11,7 +11,7 @@
             <input type="text" #searchterm class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button"
-                (click)="setSearchTerm(searchterm)">Go!</button>
+                (click)="setSearchTerm(searchterm.value)" [routerLink]="['/dummy',{word: searchterm.value}]">Go!</button>
             </span>
         </div>
 

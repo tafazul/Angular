@@ -16,16 +16,12 @@ var HeaderComponent = (function () {
         this.title = 'The Book Store';
     }
     HeaderComponent.prototype.setSearchTerm = function (searchterm) {
-        alert("clicked" + searchterm);
         localStorage.setItem("searchTerm", searchterm);
-        var link = ['/searchedhome'];
-        this.router.navigate(link);
     };
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'app-header',
             templateUrl: "app/header.component.html",
-            styles: ["\n    \n  "]
         }), 
         __metadata('design:paramtypes', [router_1.Router])
     ], HeaderComponent);

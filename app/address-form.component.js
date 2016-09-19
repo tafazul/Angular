@@ -16,6 +16,7 @@ var AddressComponent = (function () {
         this.isSuccess = false;
     }
     AddressComponent.prototype.gotoHome = function () {
+        localStorage.setItem("success", "success");
         this.router.navigate(['/home']);
     };
     AddressComponent = __decorate([

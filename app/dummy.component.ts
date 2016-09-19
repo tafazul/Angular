@@ -3,15 +3,15 @@ import { Book }             from './book';
 import { ShareBooks }       from './share-books.service';
 import { Router }            from '@angular/router';
 @Component({
-  selector: 'app-form',
+  selector: 'dummy',
   templateUrl: `app/address-form.component.html`,
   
 })
-export class AddressComponent  {
+export class DummyComponent implements OnInit  {
     isSuccess = false; 
  constructor(private router : Router){}
- gotoHome(){
-   localStorage.setItem("success", "success");
+ ngOnInit(){
+     console.log("In dummy");
       this.router.navigate(['/home']);
  }
 }

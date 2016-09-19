@@ -13,10 +13,9 @@ import { routing,
          appRoutingProviders } from './app.routing';
 import { SearchFilterPipeComponent } from './search.pipe';
 import { CartBooks } from './books-in-cart';
-import { SearchedBooksListComponent } from './books-searched.component';
 import { MultiplyPipe } from './multiply.pipe'
-
-
+import { SubjectFilterPipeComponent } from './subject-filter.pipe';
+import { PriceFilterPipeComponent } from './price-filter.pipe';
 @NgModule({
   imports: [
     BrowserModule,
@@ -33,9 +32,9 @@ import { MultiplyPipe } from './multiply.pipe'
     AddressComponent,
     SearchFilterPipeComponent,
     CartBooks,
-    SearchedBooksListComponent,
-    MultiplyPipe
-
+    MultiplyPipe,
+    SubjectFilterPipeComponent,
+    PriceFilterPipeComponent
   ],
    providers: [
     appRoutingProviders

@@ -21,8 +21,9 @@ var address_form_component_1 = require('./address-form.component');
 var app_routing_1 = require('./app.routing');
 var search_pipe_1 = require('./search.pipe');
 var books_in_cart_1 = require('./books-in-cart');
-var books_searched_component_1 = require('./books-searched.component');
 var multiply_pipe_1 = require('./multiply.pipe');
+var subject_filter_pipe_1 = require('./subject-filter.pipe');
+var price_filter_pipe_1 = require('./price-filter.pipe');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -43,8 +44,9 @@ var AppModule = (function () {
                 address_form_component_1.AddressComponent,
                 search_pipe_1.SearchFilterPipeComponent,
                 books_in_cart_1.CartBooks,
-                books_searched_component_1.SearchedBooksListComponent,
-                multiply_pipe_1.MultiplyPipe
+                multiply_pipe_1.MultiplyPipe,
+                subject_filter_pipe_1.SubjectFilterPipeComponent,
+                price_filter_pipe_1.PriceFilterPipeComponent
             ],
             providers: [
                 app_routing_1.appRoutingProviders

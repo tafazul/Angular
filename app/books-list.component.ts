@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Book }              from './book';
-import { Router, ActivatedRoute }            from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { BookService }       from './book.service';
 import { CartComponent }     from './cart-checkout.component';
 import { BooksInCartService }       from './books-in-cart.service';
@@ -10,7 +10,7 @@ import { BooksInCartService }       from './books-in-cart.service';
   providers: [ BookService,BooksInCartService],
   directives: [CartComponent]
 })
-export class BooksListComponent implements OnInit {
+export class BooksListComponent implements OnInit,OnDestroy {
   errorMessage: string;
   books: Book[];
   mode = 'Observable';
@@ -20,7 +20,9 @@ export class BooksListComponent implements OnInit {
   isEmpty : boolean = false;
   l:number=0;
   checkedSubjects : string[]=[];
-
+  checkedPrice : number=1;
+  checkedPrice1: number;
+  searchString : string = "";
   public cartitems:Book[];
   constructor (private bookService: BookService,
               public booksInCartService : BooksInCartService,
@@ -30,15 +32,20 @@ export class BooksListComponent implements OnInit {
                }
 
   ngOnInit() { this.getBooks(); 
-    this.isCartEmpty();
+    this.isTransactionSuccess();
+    if(localStorage.getItem("searchTerm")!=null){
+   this.searchString = localStorage.getItem("searchTerm");
+    this.route.parent
    }
-   isCartEmpty(){
+   }
+    ngOnDestroy() {
       
-     this.cartitems =this.selectedBooks;
-     this.l =  this.cartitems.length;
-     if(this.l!=0){
+    }
+   isTransactionSuccess(){
+     if(localStorage.getItem("success")=="success"){
        this.isSuccess = true;
      }
+     localStorage.removeItem("success");
    }
 
   getBooks() {
@@ -48,8 +55,10 @@ export class BooksListComponent implements OnInit {
                        error =>  this.errorMessage = <any>error);
   }
   gotoCart(){
+    localStorage.removeItem("success");
+    localStorage.removeItem("searchTerm");
        if(this.selectedBooks.length==0){
-            this.isEmpty = true;
+           this.isEmpty = true;
        }
        else{
        this.router.navigate(['/cart']);
@@ -72,20 +81,20 @@ export class BooksListComponent implements OnInit {
   }
 
  toggleCheck(subject : string){
-   
-    console.log(this.checkedSubjects.indexOf(subject,0));
-   for(let sub of this.checkedSubjects){
-      
-     
+   console.log(this.checkedSubjects);
      if(this.checkedSubjects.indexOf(subject,0)!=-1){
        var index = this.checkedSubjects.indexOf(subject, 0);
-       this.checkedSubjects.splice(index,1);
-      
-     }else  if(this.checkedSubjects.indexOf(subject,0)==-1){
-       console.log(subject);
+       this.checkedSubjects.splice(index,1); 
+     }else {
        this.checkedSubjects.push(subject);
      }
-   }
- }
+     this.checkedSubjects=this.checkedSubjects.slice();
+     console.log(this.checkedSubjects);
+  }
+  priceCheck(price : number){
+  this.checkedPrice1 = price;
+  this.checkedPrice = this.checkedPrice1;
+  }
+  
 }
 

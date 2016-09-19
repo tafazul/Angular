@@ -26,17 +26,24 @@ var BooksListComponent = (function () {
         this.isEmpty = false;
         this.l = 0;
         this.checkedSubjects = [];
+        this.checkedPrice = 1;
+        this.searchString = "";
     }
     BooksListComponent.prototype.ngOnInit = function () {
         this.getBooks();
-        this.isCartEmpty();
+        this.isTransactionSuccess();
+        if (localStorage.getItem("searchTerm") != null) {
+            this.searchString = localStorage.getItem("searchTerm");
+            this.route.parent;
+        }
     };
-    BooksListComponent.prototype.isCartEmpty = function () {
-        this.cartitems = this.selectedBooks;
-        this.l = this.cartitems.length;
-        if (this.l != 0) {
+    BooksListComponent.prototype.ngOnDestroy = function () {
+    };
+    BooksListComponent.prototype.isTransactionSuccess = function () {
+        if (localStorage.getItem("success") == "success") {
             this.isSuccess = true;
         }
+        localStorage.removeItem("success");
     };
     BooksListComponent.prototype.getBooks = function () {
         var _this = this;
@@ -44,6 +51,8 @@ var BooksListComponent = (function () {
             .subscribe(function (books) { return _this.books = books; }, function (error) { return _this.errorMessage = error; });
     };
     BooksListComponent.prototype.gotoCart = function () {
+        localStorage.removeItem("success");
+        localStorage.removeItem("searchTerm");
         if (this.selectedBooks.length == 0) {
             this.isEmpty = true;
         }
@@ -66,18 +75,20 @@ var BooksListComponent = (function () {
         return flag;
     };
     BooksListComponent.prototype.toggleCheck = function (subject) {
-        console.log(this.checkedSubjects.indexOf(subject, 0));
-        for (var _i = 0, _a = this.checkedSubjects; _i < _a.length; _i++) {
-            var sub = _a[_i];
-            if (this.checkedSubjects.indexOf(subject, 0) != -1) {
-                var index = this.checkedSubjects.indexOf(subject, 0);
-                this.checkedSubjects.splice(index, 1);
-            }
-            else if (this.checkedSubjects.indexOf(subject, 0) == -1) {
-                console.log(subject);
-                this.checkedSubjects.push(subject);
-            }
+        console.log(this.checkedSubjects);
+        if (this.checkedSubjects.indexOf(subject, 0) != -1) {
+            var index = this.checkedSubjects.indexOf(subject, 0);
+            this.checkedSubjects.splice(index, 1);
         }
+        else {
+            this.checkedSubjects.push(subject);
+        }
+        this.checkedSubjects = this.checkedSubjects.slice();
+        console.log(this.checkedSubjects);
+    };
+    BooksListComponent.prototype.priceCheck = function (price) {
+        this.checkedPrice1 = price;
+        this.checkedPrice = this.checkedPrice1;
     };
     BooksListComponent = __decorate([
         core_1.Component({

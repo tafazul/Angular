@@ -3,7 +3,7 @@ var router_1 = require('@angular/router');
 var cart_checkout_component_1 = require('./cart-checkout.component');
 var books_list_component_1 = require('./books-list.component');
 var address_form_component_1 = require('./address-form.component');
-var books_searched_component_1 = require('./books-searched.component');
+var dummy_component_1 = require('./dummy.component');
 var appRoutes = [
     {
         path: '',
@@ -16,8 +16,12 @@ var appRoutes = [
         path: 'home',
         component: books_list_component_1.BooksListComponent
     },
-    { path: 'searchedhome',
-        component: books_searched_component_1.SearchedBooksListComponent },
+    { path: 'home/:word',
+        component: books_list_component_1.BooksListComponent
+    },
+    { path: 'dummy',
+        component: dummy_component_1.DummyComponent
+    },
     {
         path: 'addressform',
         component: address_form_component_1.AddressComponent
