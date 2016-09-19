@@ -11,4 +11,7 @@ export class BooksInCartService{
     insertBooksInCart(book : Book){
         Promise.resolve(CartBooks).then((books:Book[])=>books.push(book));
     }
+    clearCart(){
+        CartBooks.splice(0,CartBooks.length);
+    }
 }

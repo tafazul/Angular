@@ -9,22 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var books_in_cart_service_1 = require('./books-in-cart.service');
 var router_1 = require('@angular/router');
 var AddressComponent = (function () {
-    function AddressComponent(router) {
+    function AddressComponent(router, booksInCartService) {
         this.router = router;
+        this.booksInCartService = booksInCartService;
         this.isSuccess = false;
     }
     AddressComponent.prototype.gotoHome = function () {
         localStorage.setItem("success", "success");
+        this.booksInCartService.clearCart();
         this.router.navigate(['/home']);
     };
     AddressComponent = __decorate([
         core_1.Component({
             selector: 'app-form',
             templateUrl: "app/address-form.component.html",
+            providers: [books_in_cart_service_1.BooksInCartService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, books_in_cart_service_1.BooksInCartService])
     ], AddressComponent);
     return AddressComponent;
 }());

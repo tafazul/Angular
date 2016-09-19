@@ -35,7 +35,7 @@ export class BooksListComponent implements OnInit,OnDestroy {
     this.isTransactionSuccess();
     if(localStorage.getItem("searchTerm")!=null){
    this.searchString = localStorage.getItem("searchTerm");
-    this.route.parent
+
    }
    }
     ngOnDestroy() {
@@ -55,7 +55,6 @@ export class BooksListComponent implements OnInit,OnDestroy {
                        error =>  this.errorMessage = <any>error);
   }
   gotoCart(){
-    localStorage.removeItem("success");
     localStorage.removeItem("searchTerm");
        if(this.selectedBooks.length==0){
            this.isEmpty = true;

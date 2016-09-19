@@ -1,11 +1,17 @@
 
 <div class="container" id="formCnt">
     <h1 class="headerColor">Address Form</h1>
-    <form #addressForm>
+    <form (ngSubmit)="gotoHome()" #addressForm="ngForm">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required>
+        <input #name type="text" class="form-control" id="name"
+               required>
+        <div [hidden]="name.pristine" 
+             class="alert alert-danger">
+          Name is required
+        </div>
       </div>
+
       <div class="form-group">
         <label for="Address Line1">Address Line1</label>
         <input type="text" class="form-control" id="Address Line1">
@@ -35,6 +41,6 @@
         <input type="text" class="form-control" id="Email">
       </div>
 
-      <button type="submit" class="btn btn-primary btn" id="formButton" (click)="gotoHome()" >PlaceOrder</button>
+      <button type="submit" class="btn btn-primary btn" id="formButton"  [disabled]="!addressForm.form.valid">PlaceOrder</button>
     </form>
 </div>

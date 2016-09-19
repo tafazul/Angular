@@ -19,17 +19,6 @@ var BookService = (function () {
     BookService.prototype.getBooks = function () {
         return this.http.get(this.booksUrl).map(function (res) { return res.json(); });
     };
-    /* getBooks (): Observable<Book[]> {
-        return this.http.get(this.booksUrl)
-                        .map(this.extractData)
-                        .catch(this.handleError);
-      }
-    
-         private extractData(res: Response) {
-        let body = res.json();
-        console.log("res.json()>>",res.json();
-        return body || { };
-      }*/
     BookService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :
             error.status ? error.status + " - " + error.statusText : 'Server error';

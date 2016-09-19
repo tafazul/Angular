@@ -22,7 +22,6 @@ gotoForm(){
   }
   getBooksFromCart(){
       this.booksInCartService.getBooksInCart().then(
-        (selectedBooks:Book[])=>this.selectedBooks=selectedBooks
-      );
+        (selectedBooks:Book[])=>this.selectedBooks=selectedBooks);
   }
 }

@@ -34,7 +34,6 @@ var BooksListComponent = (function () {
         this.isTransactionSuccess();
         if (localStorage.getItem("searchTerm") != null) {
             this.searchString = localStorage.getItem("searchTerm");
-            this.route.parent;
         }
     };
     BooksListComponent.prototype.ngOnDestroy = function () {
@@ -51,7 +50,6 @@ var BooksListComponent = (function () {
             .subscribe(function (books) { return _this.books = books; }, function (error) { return _this.errorMessage = error; });
     };
     BooksListComponent.prototype.gotoCart = function () {
-        localStorage.removeItem("success");
         localStorage.removeItem("searchTerm");
         if (this.selectedBooks.length == 0) {
             this.isEmpty = true;

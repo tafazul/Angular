@@ -68,7 +68,7 @@
                 <div>
                 <button type="button" class="btn btn-primary btn-xs cartButton" id="cartButton"
                 (click)="selectBook(book)"
-                (click)="isBookSelected(book)" [class.orangeButton] ="isBookSelected(book)">
+                (click)="isBookSelected(book)">
                     <p *ngIf="!isBookSelected(book)">Add to Cart</p>
                     <p *ngIf="isBookSelected(book)">Added to Cart</p>
                     <span class="glyphicon" 

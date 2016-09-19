@@ -19,6 +19,9 @@ var BooksInCartService = (function () {
     BooksInCartService.prototype.insertBooksInCart = function (book) {
         Promise.resolve(books_in_cart_1.CartBooks).then(function (books) { return books.push(book); });
     };
+    BooksInCartService.prototype.clearCart = function () {
+        books_in_cart_1.CartBooks.splice(0, books_in_cart_1.CartBooks.length);
+    };
     BooksInCartService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

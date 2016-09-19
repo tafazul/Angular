@@ -14,23 +14,6 @@ export class BookService {
     return this.http.get(this.booksUrl).map((res:Response) => res.json());
 
   }
-
-
-
-
-
-/* getBooks (): Observable<Book[]> {
-    return this.http.get(this.booksUrl)
-                    .map(this.extractData)
-                    .catch(this.handleError);
-  }
-
-     private extractData(res: Response) {
-    let body = res.json();
-    console.log("res.json()>>",res.json();
-    return body || { };
-  }*/
-
   private handleError (error: any) {
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
