@@ -3,7 +3,9 @@
    width:100%;
    position: relative;
 }
-
+html{
+    overflow-x: hidden;
+}
 #titlenlogo img{
       height:118px;
       float: left;
@@ -16,10 +18,8 @@
        float: left;
 }
 
-#searchButton{
-     padding-left: 14px;
-    padding-right: 52px;
-    padding-top: 50px;
+.headerButton{
+    padding: 50px 10px 0;
 
 }
 .col-xs-3.refinePanel > hr{
@@ -139,12 +139,14 @@
 }
 #cartButton:hover,#checkoutButton:hover,#formButton:hover{
     background-color:#f08b3b;
+    border-color:#f08b3b;
 }
 .cartButton.orangeButton{
    background-color:#f08b3b;
+   border-color: #f08b3b;
 }
 #checkoutButton{
-    border-radius:2rem;
+    border-radius: 5px;
 }
 .tableHeader{
     font-weight:bold;
@@ -159,4 +161,23 @@
 }
 #formCnt{
     width:650px;
+}
+.bookTitle{
+  min-height: 60px;
+  color: #286c6d;
+}
+.bookPrice{
+  color: #900;
+}
+.headerColor{
+  color: #286c6d;
+}
+.navLinks {
+  font-size: 18px;
+}
+.navLinks li{
+    padding: 0 10px;
+}
+.verticalAlingnMiddle{
+    vertical-align: middle;
 }

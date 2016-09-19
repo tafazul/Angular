@@ -13,8 +13,8 @@
                 <td><span><img src={{book.image}} class="checkoutImg"></span>
                     <span class="checkoutBook">{{book.BookName}}</span>
                 </td>
-                <td><input #quantity type="text" [(ngModel)]="factor" size="1" ></td>
-                <td>{{book.Price | multiply : factor }}</td>
+                <td class="verticalAlignMiddle"><input #quantity type="text" [(ngModel)]="factor" size="1" ></td>
+                <td class="verticalAlignMiddle">{{book.Price | multiply : factor }}</td>
             </tr>
         </tbody>
 
